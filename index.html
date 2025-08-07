@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <p>Acá ira el nav :)</p>
+    </header>
+    <section class="datos-turno">
+      <form id="form-turno">
+        <label
+          >Nombre completo: <input type="text" id="nombre" required /> </label
+        ><br />
+
+        <label>DNI: <input type="text" id="dni" required /> </label><br />
+
+        <label>Edad: <input type="number" id="edad" required /> </label><br />
+
+        <label
+          >Especialidad:
+          <select id="especialidad" required>
+            <option value="Clínico">Clínico</option>
+            <option value="Pediatra">Pediatra</option>
+            <option value="Dermatólogo">Dermatólogo</option>
+            <option value="Cardiólogo">Cardiólogo</option>
+          </select> </label
+        >
+
+        <label
+          >Fecha y hora:
+          <input type="date" id="fecha" required /> </label
+        >
+        <label
+          >Fecha y hora:
+          <input type="time" id="hora" required> </label
+        >
+        
+
+
+        <button class="guardar-turno" type="submit">Solicitar turno</button>
+      </form>
+    </section>
+
+    <script defer src="js/simuladorTurnos.js"></script>
+  </body>
+</html>
