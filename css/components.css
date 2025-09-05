@@ -1,0 +1,151 @@
+body {
+  color: #333;
+}
+.header{
+    height: 100px;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    z-index: 10;
+    background-color: #fdfdfd;
+}
+
+nav{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.nav-container{
+    display: flex;
+    gap: 20px;
+    border-radius: 15px;
+}
+nav ul{
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1{
+    color: #d6ff7f;
+    font-size: 2.3rem;
+}
+button a:hover {
+    text-decoration: none;
+}
+button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #d6ff7f;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+button:hover {
+    background: linear-gradient(90deg, #b6e36a 60%, #cbf86a 100%);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.fondo-verde {
+  background-color: #d6ff7f;
+  padding: 0.2rem 1rem;
+  border-radius: 40px;
+  margin-left: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+select{
+    padding: 20px 30px;
+    border: none;
+    border-radius: 40px;
+    background-color: #d6ff7f;
+    cursor: pointer;
+    border: 1.5px solid rgba(255,255,255,0.4); /* Borde vidriado */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+}
+select:hover {
+    background: rgba(203, 248, 106, 0.6);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+
+
+table {
+  width: 80%;
+  margin: 0 auto 2rem auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+}
+
+th {
+  background: #d6ff7f;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+tbody tr:nth-child(even) {
+  background: #f7fbe8;
+}
+
+tbody tr:hover {
+  background: #e6f7b6;
+  transition: background 0.2s;
+}
+
+/* Footer */
+.footer {
+  background-color: #fdfdfd;
+  color: #333;
+  padding: 2rem 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0 2rem;
+}
+
+.footer-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  color: #4d6c0c;
+}
+
+.footer-info p {
+  margin: 0.2rem 0;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+

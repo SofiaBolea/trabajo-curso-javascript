@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Medicos </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav>
+            <h1>Mi Web</h1>
+            <div class="nav-container">
+                <ul class="nav-list">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../index.html">Ver especialidades</a></li>
+                    <li><a href="./verMedicos.html"> Ver médicos</a></li>
+                    <li><a href="./verTurnos.html"> Ver turnos</a></li>
+                    <li><a href="../index.html">Contacto</a></li>
+                    <li><a href="#">Iniciar sesión <i class="fa-solid fa-circle-user"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="seccion-ver-medicos">
+            <div class="filtro">
+                <select name="especialidad" id="especialidad">
+                    <option value="">Selecciona una especialidad</option>
+                    <option value="clinica-medica">Clínica Médica</option>
+                    <option value="pediatria">Pediatría</option>
+                    <option value="ginecologia">Ginecología</option>
+                    <option value="cardiologia">Cardiología</option>
+                    <option value="dermatologia">Dermatología</option>
+                    <option value="traumatologia">Traumatología</option>
+                </select>
+            </div>
+
+            <!-- Puedes agregar esto después del div.filtro -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Especialidad</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dra. Ana López</td>
+                        <td>Pediatría</td>
+                        <td><button> Solicitar turno</button></td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Juan Pérez</td>
+                        <td>Cardiología</td>
+                        <td> <button> Solicitar turno</button></td>
+                    </tr>
+                    <tr>
+                        <td>Dra. Marta Gómez</td>
+                        <td>Dermatología</td>
+                        <td> <button> Solicitar turno</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Clínica Vida Sana</h3>
+                <p>Av. Salud y Bienestar 1234, Ciudad Esperanza</p>
+                <p>Tel: (011) 5555-1234 | contacto@clinica-vidasana.com</p>
+            </div>
+
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2025 Clínica Vida Sana. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

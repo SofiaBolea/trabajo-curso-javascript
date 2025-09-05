@@ -1,17 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="css/estilosSimulador.css" />
-  </head>
-  <body>
+<html lang="es">
 
-    <h1> Simulador simple de turnos médicos </h1>
-    <p> Si presionó salir y por eso llegó hasta acá, recargue la página</p>
-    <p> Si abris la consola, encontrás más datos ( boton derecho >> inspeccionar >> consola ) </p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Web - Estructura Base</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
 
-    <script  src="js/simuladorSimple.js"></script>
-  </body>
+
+</head>
+
+<body>
+  <header class="header">
+    <nav>
+      <h1>Mi Web</h1>
+      <div class="nav-container">
+        <ul class="nav-list">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#especialidades">Ver especialidades</a></li>
+          <li><a href="./Pages/verMedicos.html"> Ver médicos</a></li>
+          <li><a href="./Pages/pedirTurno.html"> pedir turno</a></li>
+          <li><a href="./Pages/verTurnos.html"> Ver turnos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="./Pages/iniciarSesion.html">Iniciar sesión <i class="fa-solid fa-circle-user"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <img src="./assets/imagenHero.jpg" alt="">
+      <div class="hero-text">
+        <h2> Solicitá tu </h2>
+        <div class="hero-subtext">
+          <h2>turno </h2>
+          <div class="fondo-verde">
+            <h2> ONLINE </h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-botones">
+        <button> <a href="./Pages/pedirTurno.html"> Pedir Turno </a> </button>
+        <button> <a href="#contacto"> Contacto </a> </button>
+        <button> <a href="./Pages/verMedicos.html"> Ver médicos </a> </button>
+      </div>
+    </section>
+
+    <section id="especialidades" class="seccion-especialidades">
+      <div class="card-container">
+        <div class="card-fila">
+          <div class="card">
+            <img src="./assets/alexandr-podvalny-tE7_jvK-_YU-unsplash.jpg" alt="">
+            <div class="card-content">
+              <h3> Clínica Médica </h3>
+              <p> Atención integral de adultos, diagnóstico y tratamiento de enfermedades comunes y crónicas. </p>
+            </div>
+
+          </div>
+
+          <div class="card">
+            <img src="./assets/ashkan-forouzani-DPEPYPBZpB8-unsplash.jpg" alt="">
+            <div class="card-content">
+              <h3> Pediatría </h3>
+              <p> Cuidado de la salud infantil desde el nacimiento hasta la adolescencia. </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <img src="./assets/clay-banks-cEzMOp5FtV4-unsplash.jpg" alt="">
+            <div class="card-content">
+              <h3> Ginecología </h3>
+              <p> Prevención, diagnóstico y tratamiento de enfermedades del sistema reproductor femenino. </p>
+            </div>
+
+          </div>
+
+          <div class="card-fila">
+
+            <div class="card">
+              <img src="./assets/jeremy-alford-O13B7suRG4A-unsplash.jpg" alt="">
+              <div class="card-content">
+                <h3> Cardiología </h3>
+                <p> Evaluación y tratamiento de enfermedades del corazón y sistema circulatorio. </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="./assets/tmvmnt-media-rm7rZYdl3rY-unsplash.jpg" alt="">
+              <div class="card-content">
+                <h3> Dermatología </h3>
+                <p>Diagnóstico y tratamiento de afecciones de la piel, cabello y uñas. </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="./assets/eben-kassaye-Z7TAIOQgjWA-unsplash.jpg" alt="">
+              <div class="card-content">
+                <h3> Traumatología </h3>
+                <p> Atención de lesiones y patologías del sistema óseo, muscular y articular. </p>
+              </div>
+            </div>
+
+          </div>
+    </section>
+    <section id="contacto" class="seccion-contacto">
+
+      <div class="imagen-contacto">
+        <img src="./assets/imagenContacto.jpg" alt="">
+      </div>
+      <div>
+       
+        <div class="contacto-info">
+          <div class="fondo-verde">
+            <h2>¡Estamos para ayudarte!</h2>
+          </div>
+
+          <p>
+            En Clínica Vida Sana nos dedicamos a cuidar tu salud y la de tu familia con profesionalismo
+            y calidez. Si tienes consultas, deseas solicitar un turno o simplemente quieres conocernos, puedes
+            comunicarte con nosotros o visitarnos en nuestra sede.
+          </p>
+          <ul>
+            <li>Dirección:</li>
+            <p> Av. Salud y Bienestar 1234, Ciudad Esperanza</p>
+            <li>Teléfono:</li>
+            <p> (011) 5555-1234 </p>
+            <li>Email: </li>
+            <p>contacto@clinica-vidasana.com</p>
+            <li>Horario de atención: </li>
+            <p> Lunes a Viernes de 8:00 a 19:00</p>
+        </div>
+    </section>
+
+  </main>
+
+ <footer class="footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <h3>Clínica Vida Sana</h3>
+      <p>Av. Salud y Bienestar 1234, Ciudad Esperanza</p>
+      <p>Tel: (011) 5555-1234 | contacto@clinica-vidasana.com</p>
+    </div>
+    
+  </div>
+  <div class="footer-copy">
+    <p>&copy; 2025 Clínica Vida Sana. Todos los derechos reservados.</p>
+  </div>
+</footer>
+</body>
+
 </html>

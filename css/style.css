@@ -1,0 +1,361 @@
+@import url('reset.css') layer(base);
+@import url('variables.css') layer(base);
+@import url('layout.css') layer(layout);
+@import url('components.css') layer(components);
+@import url('utilities.css') layer(utilities);
+
+/* HERO INICIO */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;/* Ajusta la altura según prefieras */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: 1;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+ /* Opcional: oscurece la imagen para mejor legibilidad del texto */
+}
+
+.hero-text,
+.hero-botones {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-botones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+}
+
+.hero-subtext{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hero-text h2 {
+  font-size: 3rem;
+  margin: 0;
+  text-align: center;
+}
+
+.hero-botones button{
+    font-size: 1.3rem;
+}
+
+
+
+/* SECCION ESPECIALIDADES */
+.seccion-especialidades {
+
+  height: 100vh; /* Ajusta según sea necesario */
+}
+
+/* Cards container */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+/* Cada fila de cards */
+.card-fila {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Card individual */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Necesario para posicionar el contenido */
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  background: rgba(255,255,255,0.95);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(.4,2,.6,1), opacity 0.3s;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.card:hover .card-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Contacto */
+
+.seccion-contacto{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+    align-items:center;
+    justify-content: space-between;
+    gap: 30px;
+    background-color: #d9d9d9;
+}
+.imagen-contacto{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.seccion-contacto img {
+    width: 100%;
+    height: 85%;
+    border-radius: 100%;
+    box-shadow:  0 2px 8px rgba(0,0,0,0.1);
+}
+
+.seccion-contacto li{
+    font-size: large;
+    font-weight: bold;
+    
+}
+
+/*VER MEDICOS*/
+.filtro {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 2rem 0;
+}
+
+.seccion-ver-medicos {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-image: url('../assets/imagenHero.jpg'); /* Cambia el nombre por el de tu imagen */
+    background-size: cover;      /* Hace que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat;
+}
+
+/* Ver turnos*/
+.seccion-ver-turnos {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-image: url('../assets/imagenHero.jpg'); /* Cambia el nombre por el de tu imagen */
+    background-size: cover;      /* Hace que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat;
+}
+
+/* PEDIR TURNO*/
+
+.form-turno {
+    width: 80%;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.95);
+    padding: 2.5rem 2rem;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form{
+    width: 100%;
+}
+.form-fila div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+    width: 100%;
+}
+.form-fila{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+.form-turno h2 {
+    margin-bottom: 1.5rem;
+    color: #7ba800;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.form-turno label {
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-turno input,
+.form-turno select {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #dbe6c4;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #f8fff0;
+    transition: border 0.2s;
+}
+
+.form-turno input:focus,
+.form-turno select:focus {
+    border: 1.5px solid #d6ff7f;
+    outline: none;
+}
+
+.form-turno button {
+    padding: 0.7rem 1.5rem;
+    border-radius: 20px;
+    border: none;
+    background: linear-gradient(90deg, #cbf86a 60%, #b6e36a 100%);
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.form-turno button:hover {
+    background: linear-gradient(90deg, #b6e36a 60%, #cbf86a 100%);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+}
+
+/*Iniciar sesión*/
+.form-inicio-sesion {
+    max-width: 370px;
+    margin: 60px auto;
+    background: rgba(255,255,255,0.97);
+    padding: 2.5rem 2rem;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-inicio-sesion h2 {
+    margin-bottom: 1.5rem;
+    color: #7ba800;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.form-inicio-sesion form > div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+    width: 100%;
+}
+
+.form-inicio-sesion label {
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-inicio-sesion input[type="text"],
+.form-inicio-sesion input[type="password"] {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #dbe6c4;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #f8fff0;
+    transition: border 0.2s;
+}
+
+.form-inicio-sesion input:focus {
+    border: 1.5px solid #d6ff7f;
+    outline: none;
+}
+
+.form-inicio-sesion form > div:last-child {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.form-inicio-sesion button {
+    padding: 0.7rem 1.5rem;
+    border-radius: 20px;
+    border: none;
+    background: linear-gradient(90deg, #d6ff7f 60%, #b6e36a 100%);
+    color: #333;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.form-inicio-sesion button:hover {
+    background: linear-gradient(90deg, #b6e36a 60%, #cbf86a 100%);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+}
+
+.form-inicio-sesion p {
+    margin-top: 1.2rem;
+    text-align: center;
+    color: #555;
+    font-size: 1rem;
+}
+
+.form-inicio-sesion a {
+    color: #7ba800;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+
+
