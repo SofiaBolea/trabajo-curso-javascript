@@ -18,6 +18,7 @@
                     <li><a href="../index.html">Inicio</a></li>
                     <li><a href="../index.html">Ver especialidades</a></li>
                     <li><a href="./verMedicos.html"> Ver médicos</a></li>
+                    <li><a href="./pedirTurno.html"> pedir turno</a></li>
                     <li><a href="./verTurnos.html"> Ver turnos</a></li>
                     <li><a href="../index.html">Contacto</a></li>
                     <li><a href="./iniciarSesion.html">Iniciar sesión <i class="fa-solid fa-circle-user"></i></a></li>
@@ -28,40 +29,22 @@
 
     <main>
         <div class="seccion-ver-turnos">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Día</th>
-                        <th>Hora</th>
-                        <th>Especialidad</th>
-                        <th>Doctor</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>10/09/2025</td>
-                        <td>09:00</td>
-                        <td>Pediatría</td>
-                        <td>Dra. Ana López</td>
-                        <td><button>Cancelar</button></td>
-                    </tr>
-                    <tr>
-                        <td>12/09/2025</td>
-                        <td>11:30</td>
-                        <td>Cardiología</td>
-                        <td>Dr. Juan Pérez</td>
-                        <td><button>Cancelar</button></td>
-                    </tr>
-                    <tr>
-                        <td>15/09/2025</td>
-                        <td>15:00</td>
-                        <td>Dermatología</td>
-                        <td>Dra. Marta Gómez</td>
-                        <td><button>Cancelar</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            <class class="tabla-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Hora</th>
+                            <th>Especialidad</th>
+                            <th>Doctor</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-turnos">
+
+                    </tbody>
+                </table>
+            </class>
         </div>
     </main>
     <footer class="footer">
@@ -77,6 +60,9 @@
             <p>&copy; 2025 Clínica Vida Sana. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script type="module" src="../js/eventos.js"></script>
+    <script type="module" src="../js/baseDeDatos.js"></script>
+    <script type="module" src="../js/funciones.js"></script>
 </body>
 
 </html>

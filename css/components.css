@@ -81,14 +81,19 @@ select:hover {
 
 
 
-table {
+.tabla-container {
   width: 80%;
-  margin: 0 auto 2rem auto;
+  max-height: 400px; /* Altura máxima antes de hacer scroll */
+  overflow-y: auto;  /* Scroll vertical */
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+table {
+  width: 100%;
   border-collapse: collapse;
   background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
 th, td {
@@ -101,6 +106,9 @@ th {
   color: #333;
   font-weight: 600;
   font-size: 1.1rem;
+  position: sticky; /* Mantiene el header fijo al hacer scroll */
+  top: 0;
+  z-index: 1;
 }
 
 tbody tr:nth-child(even) {
