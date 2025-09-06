@@ -40,7 +40,7 @@ export function recuperarMedicos(medicos) {
         <tr>
             <td>${medicos[index].nombre}</td>
             <td>${medicos[index].especialidad}</td>
-            <td><button>Solicitar turno</button></td>
+            <td> <a href="./pedirTurno.html"> <button>Solicitar turno</button> </a> </td>
         </tr>
         `;
     }
@@ -70,7 +70,6 @@ export function solicitarTurno(nombreMedico, especialidad) {
 
     localStorage.setItem('medicoSeleccionado', JSON.stringify(medicoSeleccionado));
     console.log('Datos guardados:', medicoSeleccionado);
-    window.location.href = '../Pages/pedirTurno.html';
 }
 
 // Función para mapear especialidad a value del select
@@ -103,7 +102,6 @@ function mapearDoctorAValue(nombreDoctor) {
 
 function limpiarMedicoSeleccionado() {
     localStorage.removeItem('medicoSeleccionado');
-    console.log('Datos del médico seleccionado eliminados del localStorage');
 }
 
 export function presetearMedico() {

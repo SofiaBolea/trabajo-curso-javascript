@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pedir Turno</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css" />
 </head>
@@ -14,19 +15,20 @@
     <main>
         <header class="header">
             <nav>
-            <h1>Mi Web</h1>
-            <div class="nav-container">
-                <ul class="nav-list">
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="../index.html">Ver especialidades</a></li>
-                    <li><a href="./verMedicos.html"> Ver médicos</a></li>
-                    <li><a href="./pedirTurno.html"> pedir turno</a></li>
-                    <li><a href="./verTurnos.html"> Ver turnos</a></li>
-                    <li><a href="../index.html">Contacto</a></li>
-                    <li><a href="#">Iniciar sesión <i class="fa-solid fa-circle-user"></i></a></li>
-                </ul>
-            </div>
-        </nav>
+                <h1>Mi Web</h1>
+                <div class="nav-container">
+                    <ul class="nav-list">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../index.html">Ver especialidades</a></li>
+                        <li><a href="./verMedicos.html"> Ver médicos</a></li>
+                        <li><a href="./pedirTurno.html"> pedir turno</a></li>
+                        <li><a href="./verTurnos.html"> Ver turnos</a></li>
+                        <li><a href="../index.html">Contacto</a></li>
+                        <li><a href="./iniciarSesion.html">Iniciar sesión <i class="fa-solid fa-circle-user"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </header>
         <section class="form-turno">
             <h2>Solicitar Turno</h2>
@@ -88,9 +90,12 @@
                     </div>
                 </div>
                 <div class="form-fila">
-                    <button type="button" onclick="window.location.href='verTurnos.html'">
-                        Ver turnos
-                    </button>
+                    <a href="./verTurnos.html">
+                        <button type="button">
+                            Ver turnos
+                        </button>
+                    </a>
+
                     <button type="submit">Solicitar turno</button>
                 </div>
             </form>
@@ -108,7 +113,7 @@
             </div>
         </footer>
     </main>
-    <script type="module" src="../js/eventosPedirTurno.js"></script>
+    <script type="module" src="../js/eventosPedirTurno.js" defer></script>
     <script type="module" src="../js/baseDeDatos.js"></script>
     <script type="module" src="../js/funciones.js"></script>
 </body>
