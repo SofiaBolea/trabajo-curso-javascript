@@ -2,7 +2,6 @@
 Comisión 80890 Javascript - CoderHouse - Alumna :  Sofía Bolea Maldonado
 
 
-
 # Idea de proyecto
 La idea de este proyecto es que sea el front de un manejador de turnos online de algún establecimiento sanitario.
 En este caso, como ejemplo, el establecimiento es "Vida Sana".
@@ -29,4 +28,7 @@ En este momento las funcionalidades js aprendidas se pueden observar en "verMedi
 - En la página "verTurnos.html" se observaran los turnos de la lista de turnos. En el caso de que no haya ningun turno se mostrará el mensaje "aún no hay turnos".
 - La tabla en la que se muestran los turnos, tendrá una columna con botones "cancelar" (cada uno que corresponda a un turno específico). Este botón permitirá al usuario cancelar el turno. Cuando haga click sobre el se abrirá una ventana modal con el mensaje "¿seguro que desea cancelar el turno?". En la ventana modal también habrá dos botones. El primero es "cerrar", estará a la izquierda y permitirá cerrar la ventana modal sin cancelar el turno y manteniendose en la página "verturnos". El segundo botón será "Cancelar Turno", el cual eliminará el turno de la lista de turnos, cerrará la ventana modal actual y abrirá otra de confirmación. 
 - Ventana modal de confirmación de eliminación: se abrirá una vez presionado el botón "Cancelar Turno". Esta ventana mostrará un mensaje de éxito "Turno cancelado con éxito". (En este caso, solo muestra mensaje de éxito ya que no se realizará ninguna validación real con una base de datos). Esta ventana se podrá cerrar haciendo click en cualquier parte de la pantalla fuera de la ventana modal. Una vez que se cierra esta ventana modal, el usuario permanece en la página "verTurnos.html"
+
+## Cambios a agregar en el diseño
+- Mejorar SEO.
 
