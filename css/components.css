@@ -1,5 +1,15 @@
 body {
   color: #333;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+a{
+ font-family: 'Plus Jakarta Sans', sans-serif;
+}
+button{
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+select{
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 .header{
     height: 100px;
