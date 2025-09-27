@@ -1,0 +1,88 @@
+{
+  "medicos": [
+    {
+      "id": 1,
+      "nombre": "Dra. Ana López",
+      "especialidad": "Pediatría",
+      "experiencia": "15 años",
+      "horarios": "Lunes a Viernes 8:00-17:00"
+    },
+    {
+      "id": 2,
+      "nombre": "Dr. Juan Pérez",
+      "especialidad": "Cardiología",
+      "experiencia": "20 años",
+      "horarios": "Lunes a Viernes 9:00-18:00"
+    },
+    {
+      "id": 3,
+      "nombre": "Dra. Marta Gómez",
+      "especialidad": "Dermatología",
+      "experiencia": "12 años",
+      "horarios": "Martes a Sábado 8:30-16:30"
+    },
+    {
+      "id": 4,
+      "nombre": "Dr. Carlos Ruiz",
+      "especialidad": "Clínica Médica",
+      "experiencia": "18 años",
+      "horarios": "Lunes a Viernes 7:30-19:00"
+    },
+    {
+      "id": 5,
+      "nombre": "Dra. Sofía Méndez",
+      "especialidad": "Ginecología",
+      "experiencia": "14 años",
+      "horarios": "Lunes a Viernes 8:00-17:30"
+    },
+    {
+      "id": 6,
+      "nombre": "Dr. Lucas Fernández",
+      "especialidad": "Traumatología",
+      "experiencia": "16 años",
+      "horarios": "Lunes a Viernes 9:00-18:30"
+    },
+    {
+      "id": 7,
+      "nombre": "Dr. Roberto Silva",
+      "especialidad": "Pediatría",
+      "experiencia": "10 años",
+      "horarios": "Lunes a Viernes 14:00-20:00"
+    },
+    {
+      "id": 8,
+      "nombre": "Dra. Carmen Vega",
+      "especialidad": "Cardiología",
+      "experiencia": "22 años",
+      "horarios": "Lunes a Viernes 8:00-16:00"
+    },
+    {
+      "id": 9,
+      "nombre": "Dr. Miguel Torres",
+      "especialidad": "Dermatología",
+      "experiencia": "8 años",
+      "horarios": "Lunes a Viernes 10:00-18:00"
+    },
+    {
+      "id": 10,
+      "nombre": "Dra. Patricia Ramos",
+      "especialidad": "Clínica Médica",
+      "experiencia": "25 años",
+      "horarios": "Lunes a Viernes 7:00-15:00"
+    },
+    {
+      "id": 11,
+      "nombre": "Dr. Fernando Castro",
+      "especialidad": "Ginecología",
+      "experiencia": "19 años",
+      "horarios": "Lunes a Viernes 9:30-17:30"
+    },
+    {
+      "id": 12,
+      "nombre": "Dra. Laura Morales",
+      "especialidad": "Traumatología",
+      "experiencia": "13 años",
+      "horarios": "Lunes a Viernes 8:30-16:30"
+    }
+  ]
+}

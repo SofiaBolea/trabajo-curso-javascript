@@ -1,13 +1,13 @@
-import { turnos } from '../baseDeDatos.js';
-import { presetearMedico, pedirTurno } from '.../funciones.js';  
+
+import { presetearMedico, pedirTurno } from '../funciones.js';
 
 // eventosPedirTurno.js
-
 presetearMedico();
 
 const formulario = document.getElementById("formulario-turno");
 
-formulario.addEventListener("submit", function (event) {
+if (formulario) {
+    formulario.addEventListener("submit", function (event) {
     // Previene el comportamiento predeterminado del formulario:
     event.preventDefault();
 
@@ -23,4 +23,4 @@ formulario.addEventListener("submit", function (event) {
     pedirTurno(nombre, apellido, fechaDeNacimiento, DNI, especialidad, doctor, fecha, hora)
     // Se limpian los campos del formulario
     formulario.reset()
-});
+});}

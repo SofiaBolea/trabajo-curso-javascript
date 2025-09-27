@@ -1,4 +1,4 @@
-import { turnos, medicos } from './baseDeDatos.js';
+
 
 AOS.init();
 
@@ -14,10 +14,16 @@ export function pedirTurno(nombre, apellido, fechaDeNacimiento, DNI, especialida
         doctor: doctor
     };
 
+    // Obtener turnos existentes del localStorage
+    let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
+    // Agregar el nuevo turno
     turnos.push(nuevoTurno);
+    // Guardar en localStorage
+    localStorage.setItem("turnos", JSON.stringify(turnos));
 }
 
-export function recuperarTurnos(turnos) {
+export function recuperarTurnos() {
+    let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
     let tablaDeTurnos = document.getElementById('tabla-turnos');
     tablaDeTurnos.innerHTML = ""; // Limpia la tabla primero
     for (let index = 0; index < turnos.length; index++) {
@@ -27,30 +33,39 @@ export function recuperarTurnos(turnos) {
             <td>${turnos[index].hora}</td>
             <td>${turnos[index].especialidad}</td>
             <td>${turnos[index].doctor}</td>
-            <td><button>Cancelar</button></td>
+            <td><button data-index="${index}" class="btn-cancelar">Cancelar</button></td>
         </tr>
         `;
     }
 }
 
-export function recuperarMedicos(medicos) {
-    let tablaDeMedicos = document.getElementById('tabla-medicos');
+export async function recuperarMedicos(){
+    const response = await fetch('../js/baseDeDatos.json');
+    const data = await response.json();
+    const medicos = data.medicos;
 
-    tablaDeMedicos.innerHTML = ""; // Limpia la tabla primero
-    for (let index = 0; index < medicos.length; index++) {
+    let tablaDeMedicos = document.getElementById('tabla-medicos');
+    tablaDeMedicos.innerHTML = "";
+
+    medicos.forEach(medico => {
         tablaDeMedicos.innerHTML += `
         <tr>
-            <td>${medicos[index].nombre}</td>
-            <td>${medicos[index].especialidad}</td>
-            <td> <a href="./pedirTurno.html"> <button>Solicitar turno</button> </a> </td>
-        </tr>
-        `;
-    }
+            <td>${medico.nombre}</td>
+            <td>${medico.especialidad}</td>
+            <td><a href="./pedirTurno.html"><button>Solicitar turno</button></a></td>
+        </tr>`;
+    });
+
+    return medicos; 
 }
 
-export function filtrarMedicos(especialidad) {
+export async function filtrarMedicos(especialidad) {
+    const response = await fetch('../js/baseDeDatos.json');
+    const data = await response.json();
+    const medicos = data.medicos;
     let tablaDeMedicos = document.getElementById('tabla-medicos');
-    tablaDeMedicos.innerHTML = ""; // Limpia la tabla antes de mostrar los resultados
+     
+    tablaDeMedicos.innerHTML = ""; // Limpia la tabla primero
 
     const medicosFiltrados = medicos.filter(medico => medico.especialidad === especialidad);
     for (let index = 0; index < medicosFiltrados.length; index++) {
@@ -139,3 +154,13 @@ export function presetearMedico() {
     return false;
 }
 
+export function cancelarTurno(index) {
+    let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
+    if (index < 0 || index >= turnos.length) {
+        console.warn("Índice inválido. No se pudo cancelar el turno.");
+        return;
+    }
+    turnos.splice(index, 1); 
+    localStorage.setItem("turnos", JSON.stringify(turnos));
+    recuperarTurnos(); 
+}

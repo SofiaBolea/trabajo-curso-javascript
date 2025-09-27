@@ -1,9 +1,9 @@
-import { medicos } from '../baseDeDatos.js';
+
 import { recuperarMedicos, filtrarMedicos, solicitarTurno } from '../funciones.js';
 
 // Al cargar la página, muestra todos los médicos
 localStorage.removeItem('medicoSeleccionado');
-recuperarMedicos(medicos);
+recuperarMedicos();
 
 const selectEspecialidad = document.getElementById('especialidad');
 selectEspecialidad.addEventListener('change', (e) => {

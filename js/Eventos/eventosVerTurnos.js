@@ -1,7 +1,7 @@
-import { turnos } from '../baseDeDatos.js';
+
 import { recuperarTurnos, cancelarTurno } from '../funciones.js';   
 
-recuperarTurnos(turnos);
+recuperarTurnos();
 
 let indexSeleccionado = null; // guardamos el turno que el usuario quiere cancelar
 
