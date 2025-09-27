@@ -1,5 +1,6 @@
 import { turnos, medicos } from './baseDeDatos.js';
 
+
 export function pedirTurno(nombre, apellido, fechaDeNacimiento, DNI, especialidad, doctor, fecha, hora, verTurnos, solicitarTurno) {
     const nuevoTurno = {
         nombre: nombre,
@@ -56,7 +57,7 @@ export function filtrarMedicos(especialidad) {
         <tr>
             <td>${medicosFiltrados[index].nombre}</td>
             <td>${medicosFiltrados[index].especialidad}</td>
-            <td><button>Solicitar turno</button></td>
+            <td> <a href="./pedirTurno.html"> <button>Solicitar turno</button> </a> </td>
         </tr>
         `;
     }
