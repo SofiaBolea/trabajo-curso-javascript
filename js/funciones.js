@@ -156,11 +156,30 @@ export function presetearMedico() {
 
 export function cancelarTurno(index) {
     let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
+
     if (index < 0 || index >= turnos.length) {
-        console.warn("Índice inválido. No se pudo cancelar el turno.");
+        Swal.fire({
+            title: 'Error',
+            text: 'El turno seleccionado no es válido.',
+            icon: 'error',
+            confirmButtonColor: '#e63946'
+        });
         return;
     }
-    turnos.splice(index, 1); 
+
+    // Eliminar turno
+    turnos.splice(index, 1);
     localStorage.setItem("turnos", JSON.stringify(turnos));
-    recuperarTurnos(); 
+
+    // Refrescar tabla
+    recuperarTurnos();
+
+    // Feedback de éxito
+    Swal.fire({
+        title: 'Cancelado',
+        text: 'El turno fue cancelado correctamente.',
+        icon: 'success',
+        timer: 2000,
+        showConfirmButton: false
+    });
 }

@@ -5,7 +5,7 @@ body {
 a{
  font-family: 'Plus Jakarta Sans', sans-serif;
 }
-button{
+button .button{
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 select{
@@ -52,6 +52,10 @@ h1{
 button a:hover {
     text-decoration: none;
 }
+.button a:hover {
+    text-decoration: none;
+}
+
 button{
     padding: 10px 20px;
     border: none;
@@ -60,10 +64,31 @@ button{
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+
+.button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #d6ff7f;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
 button:hover {
     background: linear-gradient(90deg, #b6e36a 60%, #cbf86a 100%);
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
+
+.button:hover {
+    background: linear-gradient(90deg, #b6e36a 60%, #cbf86a 100%);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+} 
+
+.swal2-actions {
+    display: flex;
+    justify-content: space-around; /* separa los botones equitativamente */
+    gap: 20px; /* espacio extra entre los botones */
+} 
 
 .fondo-verde {
   background-color: #d6ff7f;
