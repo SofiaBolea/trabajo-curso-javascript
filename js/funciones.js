@@ -1,7 +1,8 @@
 import { turnos, medicos } from './baseDeDatos.js';
 
+AOS.init();
 
-export function pedirTurno(nombre, apellido, fechaDeNacimiento, DNI, especialidad, doctor, fecha, hora, verTurnos, solicitarTurno) {
+export function pedirTurno(nombre, apellido, fechaDeNacimiento, DNI, especialidad, doctor, fecha, hora) {
     const nuevoTurno = {
         nombre: nombre,
         apellido: apellido,
@@ -137,3 +138,4 @@ export function presetearMedico() {
     }
     return false;
 }
+
