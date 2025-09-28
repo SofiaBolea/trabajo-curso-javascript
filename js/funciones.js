@@ -9,7 +9,13 @@ const formatoDoctor = {
     "marta-gomez": "Dra. Marta Gómez",
     "sofia-mendez": "Dra. Sofía Méndez",
     "carlos-ruiz": "Dr. Carlos Ruiz",
-    "lucas-fernandez": "Dr. Lucas Fernández"
+    "lucas-fernandez": "Dr. Lucas Fernández",
+    "roberto-silva": "Dr. Roberto Silva",
+    "carmen-vega": "Dra. Carmen Vega",
+    "miguel-torres": "Dr. Miguel Torres",
+    "patricia-ramos": "Dra. Patricia Ramos",
+    "fernando-castro": "Dr. Fernando Castro",
+    "laura-morales": "Dra. Laura Morales"
 };
 
 const formatoEspecialidad = {
@@ -23,12 +29,12 @@ const formatoEspecialidad = {
 
 // Mapeo especialidad -> médicos
 const medicosPorEspecialidad = {
-    "clinica-medica": ["ana-lopez", "juan-perez"],
-    "pediatria": ["marta-gomez"],
-    "ginecologia": ["sofia-mendez"],
-    "cardiologia": ["carlos-ruiz"],
-    "dermatologia": ["lucas-fernandez"],
-    "traumatologia": []
+    "clinica-medica": ["carlos-ruiz", "patricia-ramos"],
+    "pediatria": ["ana-lopez","roberto-silva"],
+    "ginecologia": ["fernando-castro", "sofia-mendez"],
+    "cardiologia": [ "juan-perez", "carmen-vega"],
+    "dermatologia": ["marta-gomez", "miguel-torres"],
+    "traumatologia": ["laura-morales", "lucas-fernandez"]
 };
 
 // Inicializar dependencias entre selects
@@ -196,7 +202,13 @@ function mapearDoctorAValue(nombreDoctor) {
         "Dra. Marta Gómez": "marta-gomez",
         "Dr. Carlos Ruiz": "carlos-ruiz",
         "Dra. Sofía Méndez": "sofia-mendez",
-        "Dr. Lucas Fernández": "lucas-fernandez"
+        "Dr. Lucas Fernández": "lucas-fernandez",
+        "Dr. Roberto Silva": "roberto-silva",
+        "Dra. Carmen Vega": "carmen-vega",
+        "Dr. Miguel Torres": "miguel-torres",
+        "Dra. Patricia Ramos": "patricia-ramos",
+        "Dr. Fernando Castro": "fernando-castro",
+        "Dra. Laura Morales": "laura-morales"
     };
 
     return mapeoMedicos[nombreDoctor] || null;
