@@ -30,9 +30,9 @@ const formatoEspecialidad = {
 // Mapeo especialidad -> médicos
 const medicosPorEspecialidad = {
     "clinica-medica": ["carlos-ruiz", "patricia-ramos"],
-    "pediatria": ["ana-lopez","roberto-silva"],
+    "pediatria": ["ana-lopez", "roberto-silva"],
     "ginecologia": ["fernando-castro", "sofia-mendez"],
-    "cardiologia": [ "juan-perez", "carmen-vega"],
+    "cardiologia": ["juan-perez", "carmen-vega"],
     "dermatologia": ["marta-gomez", "miguel-torres"],
     "traumatologia": ["laura-morales", "lucas-fernandez"]
 };
@@ -97,6 +97,16 @@ export function recuperarTurnos() {
     const tablaDeTurnos = document.getElementById('tabla-turnos');
     tablaDeTurnos.innerHTML = "";
 
+    if (turnos.length === 0) {
+        tablaDeTurnos.innerHTML = `
+            <tr>
+                <td colspan="5" style="text-align:center; padding:10px;">
+                    Aún no hay turnos cargados
+                </td>
+            </tr>`;
+        return; // No sigue con el forEach
+    }
+
     turnos.forEach((t, index) => {
         tablaDeTurnos.innerHTML += `
         <tr>
@@ -114,6 +124,7 @@ export function recuperarTurnos() {
     });
 }
 
+
 // Cancelar turno
 export function cancelarTurno(index) {
     let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
@@ -130,7 +141,7 @@ export function cancelarTurno(index) {
     });
 }
 
-export async function recuperarMedicos(){
+export async function recuperarMedicos() {
     const response = await fetch('../js/baseDeDatos.json');
     const data = await response.json();
     const medicos = data.medicos;
@@ -147,7 +158,7 @@ export async function recuperarMedicos(){
         </tr>`;
     });
 
-    return medicos; 
+    return medicos;
 }
 
 export async function filtrarMedicos(especialidad) {
@@ -155,7 +166,7 @@ export async function filtrarMedicos(especialidad) {
     const data = await response.json();
     const medicos = data.medicos;
     let tablaDeMedicos = document.getElementById('tabla-medicos');
-     
+
     tablaDeMedicos.innerHTML = ""; // Limpia la tabla primero
 
     const medicosFiltrados = medicos.filter(medico => medico.especialidad === especialidad);
@@ -219,35 +230,84 @@ function limpiarMedicoSeleccionado() {
 }
 
 export function presetearMedico() {
+    try {
+        const medicoData = localStorage.getItem('medicoSeleccionado');
 
-    // Validar si existe la variable en localStorage
-    const medicoData = localStorage.getItem('medicoSeleccionado');
+        if (!medicoData) return false;
 
-    if (medicoData) {
-        // Parsear los datos
         const medico = JSON.parse(medicoData);
-        // Presetear el select de especialidad
+
+        // Presetear select de especialidad
         const selectEspecialidad = document.getElementById('especialidad');
         if (selectEspecialidad) {
-
             const especialidadValue = mapearEspecialidadAValue(medico.especialidad);
-            if (especialidadValue) {
-                selectEspecialidad.value = especialidadValue;
-            }
+            if (especialidadValue) selectEspecialidad.value = especialidadValue;
         }
 
-        // Presetear el select de doctor
+        // Presetear select de doctor
         const selectDoctor = document.getElementById('doctor');
         if (selectDoctor) {
             const doctorValue = mapearDoctorAValue(medico.nombre);
-            if (doctorValue) {
-                selectDoctor.value = doctorValue;
-            }
+            if (doctorValue) selectDoctor.value = doctorValue;
         }
 
         limpiarMedicoSeleccionado();
-        return;
+        return true;
+
+    } catch (error) {
+        Swal.fire({
+            title: 'Error al presetear el médico',
+            icon: 'error',
+            confirmButtonText: 'Ir al inicio',
+            customClass: { confirmButton: 'button'},
+            buttonsStyling: false,
+        }).then(result => {
+            if (result.isConfirmed) window.location.href = "../index.html";
+        });
+        return false;
     }
-    return false;
 }
+
+export async function presetearUsuario() {
+    try {
+        const response = await fetch('../js/baseDeDatos.json');
+
+        // Verificar si la respuesta fue exitosa
+        if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const usuarios = data.usuarios;
+
+        if (usuarios && usuarios.length > 0) {
+            const inputNombre = document.getElementById('nombre');
+            const inputApellido = document.getElementById('apellido');
+            const inputDNI = document.getElementById('dni');
+            const inputFechaNacimiento = document.getElementById('fecha-nacimiento');
+
+            if (inputNombre) inputNombre.value = usuarios[0].nombre || '';
+            if (inputApellido) inputApellido.value = usuarios[0].apellido || '';
+            if (inputDNI) inputDNI.value = usuarios[0].dni || '';
+            if (inputFechaNacimiento) inputFechaNacimiento.value = usuarios[0].fechaNacimiento || '';
+
+            return true; // Usuario cargado correctamente
+        } else {
+            return false; // No hay usuarios en el JSON
+        }
+
+    } catch (error) {
+         Swal.fire({
+            title: 'Error al cargar los usuarios',
+            icon: 'error',
+            confirmButtonText: 'Ir al inicio',
+            customClass: { confirmButton: 'button'},
+            buttonsStyling: false,
+        }).then(result => {
+            if (result.isConfirmed) window.location.href = "../index.html";
+        });
+        return false;
+    }
+}
+
 

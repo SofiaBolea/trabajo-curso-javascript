@@ -7,7 +7,9 @@ La idea de este proyecto es que sea el front de un manejador de turnos online de
 En este caso, como ejemplo, el establecimiento es "Vida Sana".
 
 ## Detalles
-Con el objetivo de simular datos recopilados de una base de datos, creé un archivo "baseDeDatos.js" para poder manejar listas de objetos que en la realidad se obtendrían de una base de datos.
+Con el objetivo de simular datos recopilados de una base de datos, creé un archivo "baseDeDatos.json" para poder manejar listas de objetos que en la realidad se obtendrían de una base de datos.
+
+Como no se implementan las funcionalidades de registro e inicio de sesión, se "precargó" un usuario para observar las funciones que lo requieren en "pedirTurno.html"
 
 ## Funciones actuales
 En este momento las funcionalidades js aprendidas se pueden observar en "verMedicos.html":
@@ -21,6 +23,8 @@ En este momento las funcionalidades js aprendidas se pueden observar en "verMedi
 - Poder solicitar un turno. Una vez cargado el formulario se agregará el turno a la lista de turnos. Una vez agregado el turno a la lista de turnos, se mostrará el mensaje "Turno solicitado con éxito" en una ventana modal.
 - La ventana modal usada para la muestra del mensaje "Turno solicitado con éxito" tendra un boton "verTurnos". Al hacer click en ese boton se redirige a la página "verTurnos.html". También contará con un botón para cerrar el modal. Cualdo haga click en ese botón el usuario permanecerá en la página "pedirTurno" pero esta se actualizará para borrar los datos cargados (solo quedarán precargados los datos nombre, apellido, DNI, fecha de nacimiento).
 - En "pedirTuno" filtrar opciones del select "médico" según la opción elegida en "especialidad".
+- Se usarán los datos cargados en el registro (nombre, apellido, DNI, fecha de nacimiento) para precompletar el formulario de la página "pedirTurno.html", con el objetivo de ahorrar pasos a los usuarios.
+- En la página "verTurnos.html" se observaran los turnos de la lista de turnos. En el caso de que no haya ningun turno se mostrará el mensaje "aún no hay turnos".
 
 ## Funcionalidades a agregar 
 
@@ -30,10 +34,6 @@ En este momento las funcionalidades js aprendidas se pueden observar en "verMedi
 - Una vez completo el formulario de inicio de sesión, si este es válido (hay un objeto en la lista de usuarios que contine el email cargado y la contraseña cargada), se lleva al usuario al inicio ("index.html"). 
 - El formulario de inicio de sesión tendrá, a la izquierda, el boton "volver", el cual llevará al usuario de vuelta a "index.html", es decir, el inicio. 
 - Registrarse. Para el registro se solicitará Nombre, apellido, DNI, fecha de nacimiento, e-mail, contraseña y una confirmación de contraseña. 
-- Se usarán los datos cargados en el registro (nombre, apellido, DNI, fecha de nacimiento) para precompletar el formulario de la página "pedirTurno.html", con el objetivo de ahorrar pasos a los usuarios.
-- En la página "verTurnos.html" se observaran los turnos de la lista de turnos. En el caso de que no haya ningun turno se mostrará el mensaje "aún no hay turnos".
-
-
 
 ## Cambios a agregar en el diseño
 - Mejorar SEO.

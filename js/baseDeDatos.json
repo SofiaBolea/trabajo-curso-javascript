@@ -84,5 +84,15 @@
       "experiencia": "13 años",
       "horarios": "Lunes a Viernes 8:30-16:30"
     }
+  ],
+    "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Juan",
+      "apellido": "Pérez",
+      "dni": "12345678",
+      "fechaNacimiento": "1990-01-01"
+    }
   ]
 }
+
