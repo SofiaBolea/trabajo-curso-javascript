@@ -3,8 +3,6 @@ import { recuperarTurnos, cancelarTurno } from '../funciones.js';
 
 recuperarTurnos();
 
-let indexSeleccionado = null; // guardamos el turno que el usuario quiere cancelar
-
 const tablaDeTurnos = document.getElementById("tabla-turnos");
 
 

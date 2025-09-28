@@ -30,7 +30,6 @@ tablaMedicos.addEventListener('click', (e) => {
         const fila = e.target.closest('tr');
         const nombre = fila.cells[0].textContent.trim();
         const especialidad = fila.cells[1].textContent.trim();
-        console.log('Médico seleccionado:', { nombre, especialidad });
         solicitarTurno(nombre, especialidad);
     }
 });

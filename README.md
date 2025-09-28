@@ -18,20 +18,21 @@ En este momento las funcionalidades js aprendidas se pueden observar en "verMedi
 - Si el usuario decide clickear en el boton "solicitar turno", los valores guardados del médico seleccionado se presetearán en los campos "medico" y "especialidad" del formulario, ahorrando asi un paso al usuario.
 - La tabla en la que se muestran los turnos, tendrá una columna con botones "cancelar" (cada uno que corresponda a un turno específico). Este botón permitirá al usuario cancelar el turno. Cuando haga click sobre el se abrirá una ventana modal con el mensaje para confirmar. En la ventana modal también habrá dos botones.  permitirá cerrar la ventana modal sin cancelar el turno y manteniendose en la página "verturnos". El segundo botón será para cancelar Turno, el cual eliminará el turno de la lista de turnos, cerrará la ventana modal actual y abrirá otra de confirmación. 
 - Ventana modal de confirmación de eliminación: se abrirá una vez presionado el botón "Cancelar Turno". Esta ventana mostrará un mensaje de éxito "Turno cancelado con éxito". (En este caso, solo muestra mensaje de éxito ya que no se realizará ninguna validación real con una base de datos). Esta ventana se podrá cerrar haciendo click en cualquier parte de la pantalla fuera de la ventana modal. Una vez que se cierra esta ventana modal, el usuario permanece en la página "verTurnos.html"
+- Poder solicitar un turno. Una vez cargado el formulario se agregará el turno a la lista de turnos. Una vez agregado el turno a la lista de turnos, se mostrará el mensaje "Turno solicitado con éxito" en una ventana modal.
+- La ventana modal usada para la muestra del mensaje "Turno solicitado con éxito" tendra un boton "verTurnos". Al hacer click en ese boton se redirige a la página "verTurnos.html". También contará con un botón para cerrar el modal. Cualdo haga click en ese botón el usuario permanecerá en la página "pedirTurno" pero esta se actualizará para borrar los datos cargados (solo quedarán precargados los datos nombre, apellido, DNI, fecha de nacimiento).
+- En "pedirTuno" filtrar opciones del select "médico" según la opción elegida en "especialidad".
 
 ## Funcionalidades a agregar 
 
-- Poder solicitar un turno. Una vez cargado el formulario se agregará el turno a la lista de turnos. Una vez agregado el turno a la lista de turnos, se mostrará el mensaje "Turno solicitado con éxito" en una ventana modal.
-- La ventana modal usada para la muestra del mensaje "Turno solicitado con éxito" tendra un boton "verTurnos". Al hacer click en ese boton se redirige a la página "verTurnos.html". También contará con un botón para cerrar el modal. Cualdo haga click en ese botón el usuario permanecerá en la página "pedirTurno" pero esta se actualizará para borrar los datos cargados (solo quedarán precargados los datos nombre, apellido, DNI, fecha de nacimiento)
 - Validación para que el usuario solo pueda solicitar turnos y ver turnos si está logueado en la página.
 - Iniciar Sesion. Se solicitará e-mail y contraseña.
-- Si, al hacer click en el botón "ingresar", alguno de los campos cargados en el formulario de "inicio de sesión" no es correcto, es decir, ningún usuario de la lisa de usuarios tiene ese email y esa contraseña,  se mostrará el mensaje de error "alguno de los campos es incorrecto".
+- Si, al hacer click en el botón "ingresar", alguno de los campos cargados en el formulario de "inicio de sesión" no es correcto, es decir, ningún usuario de la lista de usuarios tiene ese email y esa contraseña,  se mostrará el mensaje de error "alguno de los campos es incorrecto".
 - Una vez completo el formulario de inicio de sesión, si este es válido (hay un objeto en la lista de usuarios que contine el email cargado y la contraseña cargada), se lleva al usuario al inicio ("index.html"). 
 - El formulario de inicio de sesión tendrá, a la izquierda, el boton "volver", el cual llevará al usuario de vuelta a "index.html", es decir, el inicio. 
 - Registrarse. Para el registro se solicitará Nombre, apellido, DNI, fecha de nacimiento, e-mail, contraseña y una confirmación de contraseña. 
 - Se usarán los datos cargados en el registro (nombre, apellido, DNI, fecha de nacimiento) para precompletar el formulario de la página "pedirTurno.html", con el objetivo de ahorrar pasos a los usuarios.
 - En la página "verTurnos.html" se observaran los turnos de la lista de turnos. En el caso de que no haya ningun turno se mostrará el mensaje "aún no hay turnos".
-- En "pedirTuno" filtrar opciones del select "médico" según la opción elegida en "especialidad".
+
 
 
 ## Cambios a agregar en el diseño

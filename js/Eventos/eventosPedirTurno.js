@@ -1,17 +1,16 @@
+import { presetearMedico, pedirTurno, inicializarFormulario } from '../funciones.js';
 
-import { presetearMedico, pedirTurno } from '../funciones.js';
+// Inicializar selects dependientes
+inicializarFormulario();
 
-// eventosPedirTurno.js
+// Presetear si venís de "Solicitar turno"
 presetearMedico();
 
 const formulario = document.getElementById("formulario-turno");
 
-if (formulario) {
-    formulario.addEventListener("submit", function (event) {
-    // Previene el comportamiento predeterminado del formulario:
+formulario.addEventListener("submit", event => {
     event.preventDefault();
 
-    // Se obtienen los valores de los campos del formulario:
     const nombre = document.getElementById("nombre").value;
     const apellido = document.getElementById("apellido").value;
     const fechaDeNacimiento = document.getElementById("fecha-nacimiento").value;
@@ -20,7 +19,9 @@ if (formulario) {
     const doctor = document.getElementById("doctor").value;
     const fecha = document.getElementById("fecha-turno").value;
     const hora = document.getElementById("hora-turno").value;
-    pedirTurno(nombre, apellido, fechaDeNacimiento, DNI, especialidad, doctor, fecha, hora)
-    // Se limpian los campos del formulario
-    formulario.reset()
-});}
+
+    pedirTurno(nombre, apellido, fechaDeNacimiento, DNI, especialidad, doctor, fecha, hora);
+
+    formulario.reset();
+    presetearMedico(); // Mantener preselección si venís de solicitud
+});

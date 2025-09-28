@@ -1,42 +1,127 @@
 
-
 AOS.init();
 
-export function pedirTurno(nombre, apellido, fechaDeNacimiento, DNI, especialidad, doctor, fecha, hora) {
-    const nuevoTurno = {
-        nombre: nombre,
-        apellido: apellido,
-        fechaDeNacimiento: fechaDeNacimiento,
-        dni: DNI,
-        dia: fecha,
-        hora: hora,
-        especialidad: especialidad,
-        doctor: doctor
-    };
 
-    // Obtener turnos existentes del localStorage
-    let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
-    // Agregar el nuevo turno
-    turnos.push(nuevoTurno);
-    // Guardar en localStorage
-    localStorage.setItem("turnos", JSON.stringify(turnos));
+// Mapeos para mostrar nombres completos y especialidades correctamente
+const formatoDoctor = {
+    "ana-lopez": "Dra. Ana López",
+    "juan-perez": "Dr. Juan Pérez",
+    "marta-gomez": "Dra. Marta Gómez",
+    "sofia-mendez": "Dra. Sofía Méndez",
+    "carlos-ruiz": "Dr. Carlos Ruiz",
+    "lucas-fernandez": "Dr. Lucas Fernández"
+};
+
+const formatoEspecialidad = {
+    "clinica-medica": "Clínica Médica",
+    "pediatria": "Pediatría",
+    "ginecologia": "Ginecología",
+    "cardiologia": "Cardiología",
+    "dermatologia": "Dermatología",
+    "traumatologia": "Traumatología"
+};
+
+// Mapeo especialidad -> médicos
+const medicosPorEspecialidad = {
+    "clinica-medica": ["ana-lopez", "juan-perez"],
+    "pediatria": ["marta-gomez"],
+    "ginecologia": ["sofia-mendez"],
+    "cardiologia": ["carlos-ruiz"],
+    "dermatologia": ["lucas-fernandez"],
+    "traumatologia": []
+};
+
+// Inicializar dependencias entre selects
+export function inicializarFormulario() {
+    const selectEspecialidad = document.getElementById("especialidad");
+    const selectDoctor = document.getElementById("doctor");
+
+    // Cuando cambia la especialidad -> filtra médicos
+    selectEspecialidad.addEventListener("change", () => {
+        const esp = selectEspecialidad.value;
+        selectDoctor.innerHTML = `<option value="">Selecciona un doctor</option>`;
+
+        if (esp && medicosPorEspecialidad[esp]) {
+            medicosPorEspecialidad[esp].forEach(key => {
+                selectDoctor.innerHTML += `<option value="${key}">${formatoDoctor[key]}</option>`;
+            });
+        }
+    });
+
+    // Cuando cambia el doctor -> autocompleta especialidad
+    selectDoctor.addEventListener("change", () => {
+        const doctorKey = selectDoctor.value;
+        if (!doctorKey) return;
+
+        for (const [esp, medicos] of Object.entries(medicosPorEspecialidad)) {
+            if (medicos.includes(doctorKey)) {
+                selectEspecialidad.value = esp;
+                break;
+            }
+        }
+    });
 }
 
+// Solicitar turno
+export function pedirTurno(nombre, apellido, fechaDeNacimiento, DNI, especialidad, doctor, fecha, hora) {
+
+    const nuevoTurno = { nombre, apellido, fechaDeNacimiento, dni: DNI, dia: fecha, hora, especialidad, doctor };
+
+    let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
+    turnos.push(nuevoTurno);
+    localStorage.setItem("turnos", JSON.stringify(turnos));
+
+    Swal.fire({
+        title: 'Turno solicitado con éxito',
+        icon: 'success',
+        showCancelButton: true,
+        cancelButtonText: 'Seguir agendando',
+        confirmButtonText: 'Ver turnos',
+        customClass: { confirmButton: 'button', cancelButton: 'button' },
+        buttonsStyling: false,
+        reverseButtons: true
+    }).then(result => {
+        if (result.isConfirmed) window.location.href = "./verTurnos.html";
+    });
+}
+
+// Recuperar turnos con nombres y especialidades en formato humano
 export function recuperarTurnos() {
     let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
-    let tablaDeTurnos = document.getElementById('tabla-turnos');
-    tablaDeTurnos.innerHTML = ""; // Limpia la tabla primero
-    for (let index = 0; index < turnos.length; index++) {
+    const tablaDeTurnos = document.getElementById('tabla-turnos');
+    tablaDeTurnos.innerHTML = "";
+
+    turnos.forEach((t, index) => {
         tablaDeTurnos.innerHTML += `
         <tr>
-            <td>${turnos[index].dia}</td>
-            <td>${turnos[index].hora}</td>
-            <td>${turnos[index].especialidad}</td>
-            <td>${turnos[index].doctor}</td>
+            <td>${t.dia}</td>
+            <td>${t.hora}</td>
+            <td>${formatoEspecialidad[t.especialidad]}</td>
+            <td>${formatoDoctor[t.doctor]}</td>
             <td><button data-index="${index}" class="btn-cancelar">Cancelar</button></td>
-        </tr>
-        `;
-    }
+        </tr>`;
+    });
+
+    // Agregar listeners a botones
+    document.querySelectorAll('.btn-cancelar').forEach(btn => {
+        btn.addEventListener('click', () => cancelarTurno(btn.dataset.index));
+    });
+}
+
+// Cancelar turno
+export function cancelarTurno(index) {
+    let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
+    turnos.splice(index, 1);
+    localStorage.setItem("turnos", JSON.stringify(turnos));
+    recuperarTurnos();
+
+    Swal.fire({
+        title: 'Cancelado',
+        text: 'El turno fue cancelado correctamente.',
+        icon: 'success',
+        timer: 2000,
+        showConfirmButton: false
+    });
 }
 
 export async function recuperarMedicos(){
@@ -154,32 +239,3 @@ export function presetearMedico() {
     return false;
 }
 
-export function cancelarTurno(index) {
-    let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
-
-    if (index < 0 || index >= turnos.length) {
-        Swal.fire({
-            title: 'Error',
-            text: 'El turno seleccionado no es válido.',
-            icon: 'error',
-            confirmButtonColor: '#e63946'
-        });
-        return;
-    }
-
-    // Eliminar turno
-    turnos.splice(index, 1);
-    localStorage.setItem("turnos", JSON.stringify(turnos));
-
-    // Refrescar tabla
-    recuperarTurnos();
-
-    // Feedback de éxito
-    Swal.fire({
-        title: 'Cancelado',
-        text: 'El turno fue cancelado correctamente.',
-        icon: 'success',
-        timer: 2000,
-        showConfirmButton: false
-    });
-}
